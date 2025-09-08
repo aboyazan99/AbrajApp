@@ -1489,5 +1489,37 @@
             renderStatusesTab('admin');
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+    const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+
+    const { createClient } = supabase;
+    const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function signInWithOAuth(provider) {
+        const { data, error } = await _supabase.auth.signInWithOAuth({
+            provider: provider,
+        });
+
+        if (error) {
+            alert('خطأ في تسجيل الدخول: ' + error.message);
+        } else {
+            console.log('Redirecting to ' + provider + ' login...');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const googleLoginBtn = document.getElementById('google-login-btn');
+        const facebookLoginBtn = document.getElementById('facebook-login-btn');
+
+        if (googleLoginBtn) {
+            googleLoginBtn.addEventListener('click', () => signInWithOAuth('google'));
+        }
+        if (facebookLoginBtn) {
+            facebookLoginBtn.addEventListener('click', () => signInWithOAuth('facebook'));
+        }
+    });
+</script>
 </body>
 </html>
