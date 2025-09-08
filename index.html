@@ -222,14 +222,12 @@
             gap: 15px;
             margin-top: 15px;
         }
-        .modal-form input, .modal-form select {
+        .modal-form input {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 8px;
             text-align: center;
             font-size: 1.1em;
-            width: 100%;
-            box-sizing: border-box;
         }
         .modal-form button {
             background-color: #2b406e;
@@ -425,111 +423,14 @@
             cursor: pointer;
             margin-top: 10px;
         }
-        .modal-input {
-            width: 90%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            text-align: right;
-            direction: rtl;
-        }
-        .modal-form-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .modal-form-row input, .modal-form-row select {
-            flex: 1;
-        }
-        #prayer-times-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            font-size: 1.1em;
-        }
-        #prayer-times-table th, #prayer-times-table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-        #prayer-times-table th {
-            background-color: #eee;
-            color: #555;
-        }
-        /* Chat Room Styles */
-        .chat-rooms-container {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        .chat-room-item {
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
+        .welcome-message {
+            font-size: 1.2em;
             color: #2b406e;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .chat-room-item:hover {
-            background-color: #e0e0e0;
-        }
-
-        /* General Photos specific styles */
-        .general-photos-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            padding: 15px;
-            background-color: #fff;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 10px;
-        }
-        .general-photos-option-btn {
-            padding: 15px;
-            border-radius: 8px;
             font-weight: bold;
-            color: #fff;
             text-align: center;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9em;
+            padding: 20px;
         }
-        .general-photos-option-btn:hover {
-            opacity: 0.9;
-        }
-        .general-photos-option-btn .icon {
-            margin-left: 8px;
-            font-size: 1.3em;
-        }
-        .btn-red { background-color: #eb5757; }
-        .btn-green { background-color: #4b883f; }
-        .btn-gray { background-color: #888; }
-        .btn-purple { background-color: #9b51e0; }
-        .btn-blue-light { background-color: #56CCF2; } /* New chat button color */
-
-        /* Override tabs-nav for statuses-page-content to match the image */
-        #statuses-page-content .tabs-nav {
-            background-color: #fff;
-            color: #555;
-            border-bottom: 1px solid #eee;
-        }
-        #statuses-page-content .tabs-nav .tab {
-            color: #555;
-            border-bottom: 3px solid transparent;
-        }
-        #statuses-page-content .tabs-nav .active-tab {
-            background-color: #fff;
-            border-bottom: 3px solid #f2994a; /* Orange underline for active tab */
-            color: #333;
-        }
+        
     </style>
 </head>
 <body>
@@ -552,6 +453,14 @@
             <section class="section">
                 <h2 class="section-title">:: خيارات سريعة ::</h2>
                 <div class="grid-container">
+                    <div id="open-statuses" class="grid-item item-blue">
+                        <span class="icon">&#x2605;</span>
+                        <p>حالات و صور</p>
+                    </div>
+                    <div id="name-on-pic-btn" class="grid-item item-green">
+                        <span class="icon">&#x270E;</span>
+                        <p>اسمك بصورة</p>
+                    </div>
                     <div id="show-zodiac-finder-btn" class="grid-item item-orange">
                         <span class="icon">&#x2695;</span>
                         <p>معرفة برجك</p>
@@ -566,53 +475,66 @@
             <section class="section">
                 <h2 class="section-title">:: الأبراج اليومية - تطبيق ابراج اون لاين ::</h2>
                 <div class="zodiac-grid">
-                    <div class="zodiac-item" data-zodiac="الحمل">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/L5gqX1d/Aries.png');"></div>
                         <p>برج الحمل</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="الثور">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/3WkR9Xf/Taurus.png');"></div>
                         <p>برج الثور</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="الجوزاء">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/F82wKzJ/Gemini.png');"></div>
                         <p>برج الجوزاء</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="السرطان">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/r7X0MSh/Cancer.png');"></div>
                         <p>برج السرطان</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="الأسد">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/X71Tz1L/Leo.png');"></div>
                         <p>برج الأسد</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="العذراء">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/GnjF3rY/Virgo.png');"></div>
                         <p>برج العذراء</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="الميزان">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/dggH7mF/Libra.png');"></div>
                         <p>برج الميزان</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="العقرب">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/C0yvS1R/Scorpio.png');"></div>
                         <p>برج العقرب</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="القوس">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/S769m7f/Sagittarius.png');"></div>
                         <p>برج القوس</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="الجدي">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/VMyh02B/Capricorn.png');"></div>
                         <p>برج الجدي</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="الدلو">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/z50vWjF/Aquarius.png');"></div>
                         <p>برج الدلو</p>
                     </div>
-                    <div class="zodiac-item" data-zodiac="الحوت">
+                    <div class="zodiac-item">
                         <div class="zodiac-icon-circle" style="background-image: url('https://i.ibb.co/y4L26Rj/Pisces.png');"></div>
                         <p>برج الحوت</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">:: كل يوم ::</h2>
+                <div class="grid-container">
+                    <div id="personality-test-btn" class="grid-item item-blue">
+                        <span class="icon">&#x2753;</span>
+                        <p>اختبارات شخصية</p>
+                    </div>
+                    <div id="lucky-game-btn" class="grid-item item-orange">
+                        <span class="icon">&#x1F4A3;</span>
+                        <p>لعبة الحظ</p>
                     </div>
                 </div>
             </section>
@@ -665,20 +587,28 @@
                         <span class="icon">&#x26A0;</span>
                         <p>تفسير الأحلام</p>
                     </div>
-                    <div id="prayer-times-btn" class="grid-item item-dark-blue-2">
+                    <div class="grid-item item-dark-blue-2">
                         <span class="icon">&#x231A;</span>
                         <p>أوقات الصلاة</p>
+                    </div>
+                    <div class="grid-item item-light-green-2">
+                        <span class="icon">&#x1F30E;</span>
+                        <p>المترجم الذكي</p>
                     </div>
                     <div class="grid-item item-green-2">
                         <span class="icon">&#x1F58C;</span>
                         <p>مصمم الصور</p>
+                    </div>
+                    <div class="grid-item item-brown-3">
+                        <span class="icon">&#x1F9E9;</span>
+                        <p>ألغاز وحزازير</p>
                     </div>
                 </div>
             </section>
             <section class="section">
                 <h2 class="section-title">:: ساهم بدعم البرنامج ::</h2>
                 <p style="text-align:center; padding: 10px;">فضلاً وليس أمراً شارك التطبيق مع الأصدقاء والعائلة ومع من تحب.</p>
-                <button class="share-btn" id="share-app-btn">انقر هنا لمشاركة التطبيق</button>
+                <button class="share-btn">انقر هنا لمشاركة التطبيق</button>
             </section>
             <footer class="footer">
                 <div class="footer-links">
@@ -701,782 +631,192 @@
                 </div>
             </header>
             <nav class="tabs-nav">
-                <div class="tab active-tab" data-section="admin">الإدارة</div>
-                <div class="tab" data-section="general-photos">صور عامة</div>
-                <div class="tab" data-section="chat-rooms">غرف دردشة</div>
+                <div class="tab" data-section="latest" id="admin-tab">الإدارة</div>
+                <div class="tab" data-section="sections">الاقسام</div>
+                <div class="tab" data-section="general">صور عامة</div>
                 <div class="tab" data-section="profile">حسابي</div>
             </nav>
             <div class="content-section" id="statuses-content-display">
-                
-
-</div>
+                </div>
         </div>
 
-        <div id="zodiac-modal-container" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="zodiac-modal-container">&times;</span>
-                <h3>معرفة برجك</h3>
-                <div class="modal-form">
-                    <p>أدخل تاريخ ميلادك:</p>
-                    <input type="date" id="zodiac-birthdate-input" class="modal-input">
-                    <button id="find-zodiac-btn">اكتشف برجي</button>
-                </div>
-                <div id="zodiac-result-box" class="result-box hidden">
-                    <h4 id="zodiac-result-name"></h4>
-                    <p id="zodiac-result-info"></p>
-                </div>
-            </div>
-        </div>
-
-        <div id="age-modal-container" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="age-modal-container">&times;</span>
-                <h3>احسب عمرك</h3>
-                <div class="modal-form">
-                    <p>أدخل تاريخ ميلادك:</p>
-                    <input type="date" id="age-birthdate-input" class="modal-input">
-                    <button id="calculate-age-btn">احسب عمري</button>
-                </div>
-                <div id="age-result-box" class="result-box hidden">
-                    <h4 id="age-result-info"></h4>
-                </div>
-            </div>
-        </div>
-        
-        <div id="love-meter-modal-container" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="love-meter-modal-container">&times;</span>
-                <h3>قياس الحب</h3>
-                <div class="modal-form">
-                    <p>أدخل اسمك واسم شريكك:</p>
-                    <input type="text" id="your-name-input" class="modal-input" placeholder="اسمك">
-                    <input type="text" id="partner-name-input" class="modal-input" placeholder="اسم شريكك">
-                    <button id="calculate-love-btn">احسب نسبة الحب</button>
-                </div>
-                <div id="love-meter-result-box" class="result-box hidden">
-                    <h4 id="love-meter-result-info"></h4>
-                </div>
-            </div>
-        </div>
-
-        <div id="personality-analysis-modal-container" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="personality-analysis-modal-container">&times;</span>
-                <h3>تحليل شخصيتك</h3>
-                <div class="modal-form">
-                    <p>أدخل اسمك الأول:</p>
-                    <input type="text" id="personality-name-input" class="modal-input" placeholder="اسمك">
-                    <button id="analyze-personality-btn">حلل شخصيتي</button>
-                </div>
-                <div id="personality-result-box" class="result-box hidden">
-                    <h4 id="personality-result-info"></h4>
-                </div>
-            </div>
-        </div>
-
-        <div id="name-meaning-modal-container" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="name-meaning-modal-container">&times;</span>
-                <h3>معنى اسمك</h3>
-                <div class="modal-form">
-                    <p>أدخل اسمك:</p>
-                    <input type="text" id="name-meaning-input" class="modal-input" placeholder="اسمك">
-                    <button id="find-name-meaning-btn">ابحث عن معنى</button>
-                </div>
-                <div id="name-meaning-result-box" class="result-box hidden">
-                    <h4 id="name-meaning-result-info"></h4>
-                </div>
-            </div>
-        </div>
-
-        <div id="name-calculator-modal-container" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="name-calculator-modal-container">&times;</span>
-                <h3>احسب اسمك</h3>
-                <div class="modal-form">
-                    <p>أدخل اسمك:</p>
-                    <input type="text" id="name-calculator-input" class="modal-input" placeholder="اسمك">
-                    <button id="calculate-name-btn">احسب اسمي</button>
-                </div>
-                <div id="name-calculator-result-box" class="result-box hidden">
-                    <h4 id="name-calculator-result-info"></h4>
-                </div>
-            </div>
-        </div>
-
-        <div id="bmi-modal-container" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="bmi-modal-container">&times;</span>
-                <h3>وزنك صحي؟</h3>
-                <div class="modal-form">
-                    <input type="number" id="bmi-weight-input" class="modal-input" placeholder="الوزن (كغ)">
-                    <input type="number" id="bmi-height-input" class="modal-input" placeholder="الطول (سم)">
-                    <button id="calculate-bmi-btn">احسب مؤشر كتلة الجسم</button>
-                </div>
-                <div id="bmi-result-box" class="result-box hidden">
-                    <h4 id="bmi-result-info"></h4>
-                </div>
-            </div>
-        </div>
-
+        <div id="zodiac-modal-container" class="modal-container">...</div>
+        <div id="name-on-pic-modal-container" class="modal-container">...</div>
+        <div id="lucky-game-modal-container" class="modal-container">...</div>
+        <div id="age-modal-container" class="modal-container">...</div>
+        <div id="love-meter-modal-container" class="modal-container">...</div>
+        <div id="personality-modal-container" class="modal-container">...</div>
+        <div id="zodiac-compatibility-modal-container" class="modal-container">...</div>
+        <div id="bmi-modal-container" class="modal-container">...</div>
+        <div id="name-meaning-modal-container" class="modal-container">...</div>
+        <div id="name-calculator-modal-container" class="modal-container">...</div>
+        <div id="personality-test-modal-container" class="modal-container">...</div>
         <div id="message-container" class="message-container">
             <div id="message-box" class="message-box">
-                <p></p>
-            </div>
-        </div>
-
-        <div id="love-compatibility-modal" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="love-compatibility-modal">&times;</span>
-                <h3>توافق الأبراج</h3>
-                <div class="modal-form">
-                    <p>اختر برجك وبرج شريكك:</p>
-                    <select id="user-zodiac" class="modal-input">
-                        <option value="">اختر برجك</option>
-                        <option value="الحمل">الحمل</option>
-                        <option value="الثور">الثور</option>
-                        <option value="الجوزاء">الجوزاء</option>
-                        <option value="السرطان">السرطان</option>
-                        <option value="الأسد">الأسد</option>
-                        <option value="العذراء">العذراء</option>
-                        <option value="الميزان">الميزان</option>
-                        <option value="العقرب">العقرب</option>
-                        <option value="القوس">القوس</option>
-                        <option value="الجدي">الجدي</option>
-                        <option value="الدلو">الدلو</option>
-                        <option value="الحوت">الحوت</option>
-                    </select>
-                    <select id="partner-zodiac" class="modal-input">
-                        <option value="">اختر برج شريكك</option>
-                        <option value="الحمل">الحمل</option>
-                        <option value="الثور">الثور</option>
-                        <option value="الجوزاء">الجوزاء</option>
-                        <option value="السرطان">السرطان</option>
-                        <option value="الأسد">الأسد</option>
-                        <option value="العذراء">العذراء</option>
-                        <option value="الميزان">الميزان</option>
-                        <option value="العقرب">العقرب</option>
-                        <option value="القوس">القوس</option>
-                        <option value="الجدي">الجدي</option>
-                        <option value="الدلو">الدلو</option>
-                        <option value="الحوت">الحوت</option>
-                    </select>
-                    <button id="check-compatibility-btn">تحقق من التوافق</button>
-                </div>
-                <div id="compatibility-result-box" class="result-box hidden">
-                    <h4 id="compatibility-result-text"></h4>
-                </div>
-            </div>
-        </div>
-
-        <div id="prayer-times-modal" class="modal-container">
-            <div class="modal-content">
-                <span class="close-btn" data-close-modal="prayer-times-modal">&times;</span>
-                <h3>أوقات الصلاة في بغداد</h3>
-                <p>مواقيت الصلاة اليومية (توقيت افتراضي)</p>
-                <table id="prayer-times-table">
-                    <thead>
-                        <tr>
-                            <th>الصلاة</th>
-                            <th>الوقت</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>الفجر</td><td id="fajr-time"></td></tr>
-                        <tr><td>الشروق</td><td id="sunrise-time"></td></tr>
-                        <tr><td>الظهر</td><td id="dhuhr-time"></td></tr>
-                        <tr><td>العصر</td><td id="asr-time"></td></tr>
-                        <tr><td>المغرب</td><td id="maghrib-time"></td></tr>
-                        <tr><td>العشاء</td><td id="isha-time"></td></tr>
-                    </tbody>
-                </table>
+                <p>سيتم تفعيل هذه الميزة قريباً</p>
             </div>
         </div>
         
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mainPage = document.getElementById('main-page-content');
             const statusesPage = document.getElementById('statuses-page-content');
+            const openStatusesBtn = document.getElementById('open-statuses');
             const statusTabBtn = document.getElementById('status-tab-btn');
             const backToMainBtn = document.getElementById('back-to-main');
-            const allTabs = document.querySelectorAll('#statuses-page-content .tabs-nav .tab');
+            const allTabs = document.querySelectorAll('#statuses-page-content .tab');
             const statusesContent = document.getElementById('statuses-content-display');
             const messageContainer = document.getElementById('message-container');
-            const closeButtons = document.querySelectorAll('.close-btn');
-            const modalIdMap = {
-                'show-zodiac-finder-btn': 'zodiac-modal-container',
-                'age-calculator-btn': 'age-modal-container',
-                'love-meter-btn': 'love-meter-modal-container',
-                'personality-analysis-btn': 'personality-analysis-modal-container',
-                'zodiac-compatibility-btn': 'love-compatibility-modal',
-                'bmi-calculator-btn': 'bmi-modal-container',
-                'name-meaning-btn': 'name-meaning-modal-container',
-                'name-calculator-btn': 'name-calculator-modal-container',
-                'prayer-times-btn': 'prayer-times-modal'
-            };
-
-
-            let adminPosts = [
-                {
-                    text: 'تحيه لكل بنت امها حكتلها ،، الله يعينو الي بدو يتزوجك " تحيه لكل شب ابوه حكاله ،، عمرك مارح تصير بني آدم " حاسس البوست رح يتفجر لايكات هههههههههههههههههه',
-                    image: 'https://i.ibb.co/bds9x4r/20250905-032813.jpg',
-                    user: 'ابراج اون لاين',
-                    meta: 'منذ 9 سنوات • #مضحكة',
-                    likes: '20,589'
-                }
-            ];
-
-            let isAdminLoggedIn = false;
-            const adminPassword = 'admin'; 
-
-            const arabCountries = ['مصر', 'السعودية', 'الإمارات', 'الكويت', 'البحرين', 'عمان', 'قطر', 'العراق', 'الأردن', 'لبنان', 'سوريا', 'فلسطين', 'السودان', 'ليبيا', 'تونس', 'الجزائر', 'المغرب', 'موريتانيا', 'الصومال', 'جيبوتي', 'جزر القمر', 'اليمن'];
-
-            function showPage(pageToShow, pageToHide) {
-                pageToShow.classList.remove('hidden');
-                pageToHide.classList.add('hidden');
-            }
-
-            statusTabBtn.addEventListener('click', () => {
-                showPage(statusesPage, mainPage);
-                // Default to 'admin' tab when entering statuses page
-                renderStatusesTab('admin'); 
-            });
-
-            backToMainBtn.addEventListener('click', () => {
-                showPage(mainPage, statusesPage);
-            });
-
-            function renderPosts() {
-                return adminPosts.map(post => `
-                    <div class="post">
-                        <div class="post-header">
-                            <img src="https://via.placeholder.com/40" alt="Avatar" class="user-avatar">
-                            <div class="user-info">
-                                <p class="user-name">${post.user}</p>
-                                <p class="post-meta">${post.meta}</p>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p class="post-text">${post.text}</p>
-                            ${post.image ? `<img src="${post.image}" alt="Post Image" class="post-image">` : ''}
-                        </div>
-                        <div class="post-actions">
-                            <span class="likes-count">${post.likes}</span>
-                            <div class="post-action">&#x1F44D; لايك</div>
-                            <div class="post-action">&#x1F4AD; تعليق</div>
-                            <div class="post-action">&#x1F58D; مشاركة</div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            function renderStatusesTab(sectionName) {
-                allTabs.forEach(t => t.classList.remove('active-tab'));
-                const selectedTab = document.querySelector(`[data-section="${sectionName}"]`);
-                if(selectedTab) {
-                    selectedTab.classList.add('active-tab');
-                }
-
-                if (sectionName === 'admin') { 
-                    if (isAdminLoggedIn) {
-                        statusesContent.innerHTML = `
-                            <div class="admin-panel">
-                                <button class="logout-btn">تسجيل الخروج</button>
-                                <h3>نشر منشور جديد</h3>
-                                <textarea id="post-text-input" placeholder="اكتب منشورك هنا..." rows="4"></textarea>
-                                <input type="text" id="post-image-input" placeholder="رابط الصورة (اختياري)">
-                                <button id="publish-post-btn">نشر</button>
-                            </div>
-                            <hr style="margin: 20px 0; border: 1px solid #ddd;">
-                            <h3>منشوراتي</h3>
-                            ${renderPosts()}
-                        `;
-                        document.getElementById('publish-post-btn').addEventListener('click', publishPost);
-                        document.querySelector('.logout-btn').addEventListener('click', () => {
-                            isAdminLoggedIn = false;
-                            showMessageBox('تم تسجيل الخروج بنجاح.');
-                            renderStatusesTab('admin');
-                        });
-                    } else {
-                        statusesContent.innerHTML = `
-                            <div class="admin-login">
-                                <p>للدخول إلى لوحة الإدارة، يرجى إدخال كلمة المرور:</p>
-                                <input type="password" id="admin-password-input" placeholder="كلمة المرور">
-                                <button id="admin-login-btn">دخول</button>
-                                <hr style="margin: 20px 0; border: 1px solid #ddd;">
-                            </div>
-                            <h3>منشورات الإدارة</h3>
-                            ${renderPosts()}
-                        `;
-                        document.getElementById('admin-login-btn').addEventListener('click', checkAdminPassword);
-                    }
-                } else if (sectionName === 'chat-rooms') { 
-                    const chatRoomsHTML = arabCountries.map(country => `
-                        <div class="chat-room-item" data-country="${country}">
-                            غرفة دردشة ${country}
-                        </div>
-                    `).join('');
-                    statusesContent.innerHTML = `
-                        <div class="chat-rooms-container">
-                            ${chatRoomsHTML}
-                        </div>
-                    `;
-                    document.querySelectorAll('.chat-room-item').forEach(item => {
-                        item.addEventListener('click', () => {
-                            showMessageBox('سيتم تفعيل غرف الدردشة قريباً.');
-                        });
-                    });
-                } else if (sectionName === 'profile') {
-                    statusesContent.innerHTML = `
-                        <div style="padding: 20px; text-align: center;">
-                            <p style="font-size: 1.2em; color: #555;">يرجى تسجيل الدخول لعرض حسابك</p>
-                            <div class="login-buttons">
-                                <div class="login-btn google-btn">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png" alt="Google Logo">
-                                    <span>تسجيل الدخول عبر جوجل</span>
-                                </div>
-                                <div class="login-btn facebook-btn">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1200px-2021_Facebook_icon.svg.png" alt="Facebook Logo">
-                                    <span>تسجيل الدخول عبر فيسبوك</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    document.querySelectorAll('.login-btn').forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            showMessageBox('ميزة تسجيل الدخول قيد التفعيل حالياً.');
-                        });
-                    });
-                } else if (sectionName === 'general-photos') {
-                    statusesContent.innerHTML = `
-                        <div class="general-photos-options">
-                            <div class="general-photos-option-btn btn-red" id="upload-new-photo-btn">
-                                <span class="icon">&#x1F4F8;</span>
-                                <span>نشر صورة جديدة</span>
-                            </div>
-                            <div class="general-photos-option-btn btn-green" id="my-posts-btn">
-                                <span class="icon">&#x1F4C4;</span>
-                                <span>عرض منشوراتي</span>
-                            </div>
-                            <div class="general-photos-option-btn btn-gray" id="trending-posts-btn">
-                                <span class="icon">&#x1F4C8;</span>
-                                <span>الأكثر رواجاً</span>
-                            </div>
-                            <div class="general-photos-option-btn btn-purple" id="search-user-btn">
-                                <span class="icon">&#x1F50D;</span>
-                                <span>بحث عن مستخدم</span>
-                            </div>
-                        </div>
-                        <div id="general-photos-posts-container" style="padding: 15px;">
-                            ${renderPosts()}
-                        </div>
-                    `;
-                    document.getElementById('upload-new-photo-btn').addEventListener('click', () => showMessageBox('خاصية نشر الصور الجديدة قيد التطوير.'));
-                    document.getElementById('my-posts-btn').addEventListener('click', () => showMessageBox('هذه الميزة تتطلب تسجيل الدخول.'));
-                    document.getElementById('trending-posts-btn').addEventListener('click', () => showMessageBox('الأكثر رواجاً قريباً!'));
-                    document.getElementById('search-user-btn').addEventListener('click', () => showMessageBox('البحث عن مستخدمين قريباً!'));
-                }
-                else {
-                    statusesContent.innerHTML = `<p style="text-align: center; margin-top: 50px;">سيتم تفعيل هذا القسم قريباً</p>`;
-                }
-            }
-
-            function checkAdminPassword() {
-                const passwordInput = document.getElementById('admin-password-input').value;
-                if (passwordInput === adminPassword) {
-                    isAdminLoggedIn = true;
-                    showMessageBox('تم تسجيل الدخول كمدير بنجاح.');
-                    renderStatusesTab('admin');
-                } else {
-                    showMessageBox('كلمة المرور خاطئة. حاول مرة أخرى.');
-                }
-            }
-
-            function publishPost() {
-                const postText = document.getElementById('post-text-input').value;
-                const postImage = document.getElementById('post-image-input').value;
-                if (postText.trim() === '') {
-                    showMessageBox('لا يمكن نشر منشور فارغ!');
-                    return;
-                }
-                
-                const newPost = {
-                    text: postText,
-                    image: postImage.trim() !== '' ? postImage : null,
-                    user: 'ابراج اون لاين',
-                    meta: 'الآن • #الإدارة',
-                    likes: '0'
-                };
-                adminPosts.unshift(newPost);
-                document.getElementById('post-text-input').value = '';
-                document.getElementById('post-image-input').value = '';
-                showMessageBox('تم نشر المنشور بنجاح.');
-                renderStatusesTab('admin'); 
-                if (document.querySelector('#statuses-page-content .tabs-nav .tab.active-tab').getAttribute('data-section') === 'general-photos') {
-                    document.getElementById('general-photos-posts-container').innerHTML = renderPosts();
-                }
-            }
-
-            const allItems = document.querySelectorAll('#main-page-content .grid-item, #main-page-content button');
-            allItems.forEach(item => {
-                const id = item.id;
-                const modalId = modalIdMap[id];
-                
-                if (modalId) {
-                    item.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        document.getElementById(modalId).style.display = 'flex';
-                    });
-                }
-            });
-
-            document.getElementById('share-app-btn').addEventListener('click', (event) => {
-                event.preventDefault();
-                if (navigator.share) {
-                    navigator.share({
-                        title: 'تطبيق أبراج اون لاين',
-                        text: 'تطبيق أبراج اون لاين - كل ما يخص الأبراج في مكان واحد!',
-                        url: document.location.href,
-                    }).catch(error => console.log('Error sharing', error));
-                } else {
-                    showMessageBox('ميزة المشاركة غير مدعومة على جهازك.');
-                }
-            });
-
-            document.querySelector('.forecast-btn').addEventListener('click', (event) => {
-                event.preventDefault();
-            });
-            
-            const zodiacItems = document.querySelectorAll('.zodiac-grid .zodiac-item');
-            zodiacItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    showMessageBox('سيتم تفعيل هذه الميزة قريباً');
-                });
-            });
+            const messageBox = document.getElementById('message-box');
 
             function showMessageBox(message) {
-                const messageBox = document.getElementById('message-box');
-                messageBox.innerHTML = `<p>${message}</p>`;
+                messageBox.querySelector('p').textContent = message;
                 messageContainer.style.visibility = 'visible';
                 messageContainer.style.opacity = '1';
                 setTimeout(() => {
-                    messageContainer.style.visibility = 'hidden';
                     messageContainer.style.opacity = '0';
+                    messageContainer.style.visibility = 'hidden';
                 }, 3000);
             }
 
-            messageContainer.addEventListener('click', () => {
-                messageContainer.style.visibility = 'hidden';
-                messageContainer.style.opacity = '0';
+            openStatusesBtn.addEventListener('click', () => {
+                mainPage.classList.add('hidden');
+                statusesPage.classList.remove('hidden');
+                renderStatusesTab('general');
             });
-            
-            closeButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const modalId = btn.getAttribute('data-close-modal');
-                    document.getElementById(modalId).style.display = 'none';
+
+            statusTabBtn.addEventListener('click', () => {
+                mainPage.classList.add('hidden');
+                statusesPage.classList.remove('hidden');
+                renderStatusesTab('general');
+            });
+
+            backToMainBtn.addEventListener('click', () => {
+                mainPage.classList.remove('hidden');
+                statusesPage.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.tab').forEach(item => item.classList.remove('active-tab'));
+                    this.classList.add('active-tab');
                 });
             });
 
-            // Zodiac Finder Logic
-            document.getElementById('find-zodiac-btn').addEventListener('click', () => {
-                const birthdate = new Date(document.getElementById('zodiac-birthdate-input').value);
-                const day = birthdate.getDate();
-                const month = birthdate.getMonth() + 1;
-                const zodiac = getZodiacSign(day, month);
+            function renderStatusesTab(section) {
+                statusesContent.innerHTML = '';
+                let contentHTML = '';
+                if (section === 'general') {
+                    contentHTML = `
+                        <div class="section">
+                            <h2 class="section-title">:: صور عامة ::</h2>
+                            <p style="text-align: center;">يتم تحميل المحتوى...</p>
+                        </div>
+                    `;
+                } else if (section === 'admin') {
+                    contentHTML = `
+                        <div class="section">
+                            <h2 class="section-title">:: لوحة تحكم المدير ::</h2>
+                            <div class="admin-panel">
+                                <textarea id="post-text" placeholder="اكتب حالة أو رسالة..."></textarea>
+                                <input type="text" id="post-image-url" placeholder="رابط الصورة (اختياري)">
+                                <button id="publish-btn">نشر</button>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h2 class="section-title">:: جميع المنشورات ::</h2>
+                            <p style="text-align: center;">لا يوجد منشورات حاليا.</p>
+                        </div>
+                    `;
+                } else if (section === 'profile') {
+                    contentHTML = `
+                        <div class="section">
+                            <h2 class="section-title">:: حسابي ::</h2>
+                            <div class="welcome-message">
+                                <h3>مرحباً بك، زائر!</h3>
+                                <p>سجل الدخول لعرض حسابك.</p>
+                            </div>
+                            <div class="login-buttons">
+                                <div id="google-login-btn" class="login-btn google-btn">
+                                    <img src="https://i.ibb.co/3Wf2c90/google.png" alt="Google"> تسجيل الدخول عبر Google
+                                </div>
+                                <div id="facebook-login-btn" class="login-btn facebook-btn">
+                                    <img src="https://i.ibb.co/9V45r5W/facebook.png" alt="Facebook"> تسجيل الدخول عبر Facebook
+                                </div>
+                            </div>
+                            <div class="admin-login hidden">
+                                <p>تسجيل دخول المدير</p>
+                                <input type="password" id="admin-password" placeholder="كلمة المرور">
+                                <button id="admin-login-button">دخول</button>
+                            </div>
+                        </div>
+                    `;
+                }
+                statusesContent.innerHTML = contentHTML;
+            }
 
-                const resultBox = document.getElementById('zodiac-result-box');
-                const resultName = document.getElementById('zodiac-result-name');
-                const resultInfo = document.getElementById('zodiac-result-info');
+            // Functionality for modals and features
+            function showModal(id) {
+                document.getElementById(id).style.display = 'flex';
+            }
+            function hideModal(id) {
+                document.getElementById(id).style.display = 'none';
+            }
 
-                if (zodiac) {
-                    resultName.textContent = `برجك هو: ${zodiac.name_ar}`;
-                    resultInfo.textContent = zodiac.info_ar;
-                    resultBox.classList.remove('hidden');
+            document.getElementById('show-zodiac-finder-btn').addEventListener('click', () => {
+                showModal('zodiac-modal-container');
+            });
+            document.getElementById('name-on-pic-btn').addEventListener('click', () => {
+                showModal('name-on-pic-modal-container');
+            });
+            document.getElementById('lucky-game-btn').addEventListener('click', () => {
+                showModal('lucky-game-modal-container');
+            });
+            document.getElementById('age-calculator-btn').addEventListener('click', () => {
+                showModal('age-modal-container');
+            });
+            document.getElementById('love-meter-btn').addEventListener('click', () => {
+                showModal('love-meter-modal-container');
+            });
+            document.getElementById('personality-analysis-btn').addEventListener('click', () => {
+                showModal('personality-modal-container');
+            });
+            document.getElementById('zodiac-compatibility-btn').addEventListener('click', () => {
+                showModal('zodiac-compatibility-modal-container');
+            });
+            document.getElementById('bmi-calculator-btn').addEventListener('click', () => {
+                showModal('bmi-modal-container');
+            });
+            document.getElementById('name-meaning-btn').addEventListener('click', () => {
+                showModal('name-meaning-modal-container');
+            });
+            document.getElementById('name-calculator-btn').addEventListener('click', () => {
+                showModal('name-calculator-modal-container');
+            });
+            document.getElementById('personality-test-btn').addEventListener('click', () => {
+                showModal('personality-test-modal-container');
+            });
+
+            document.querySelectorAll('.close-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btn.closest('.modal-container').style.display = 'none';
+                });
+            });
+
+            document.getElementById('share-app-btn').addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'تطبيق أبراج اون لاين',
+                        text: 'حمل الآن تطبيق أبراج اون لاين واستمتع بميزاته الرائعة!',
+                        url: window.location.href,
+                    }).catch(console.error);
                 } else {
-                    showMessageBox('الرجاء إدخال تاريخ ميلاد صحيح.');
-                    resultBox.classList.add('hidden');
+                    showMessageBox('ميزة المشاركة غير مدعومة في جهازك.');
                 }
             });
-
-            // Age Calculator Logic
-            document.getElementById('calculate-age-btn').addEventListener('click', () => {
-                const birthdate = new Date(document.getElementById('age-birthdate-input').value);
-                if (isNaN(birthdate.getTime())) {
-                    showMessageBox('الرجاء إدخال تاريخ ميلاد صحيح.');
-                    return;
-                }
-                const today = new Date();
-                let age = today.getFullYear() - birthdate.getFullYear();
-                const m = today.getMonth() - birthdate.getMonth();
-                if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
-                    age--;
-                }
-                const resultBox = document.getElementById('age-result-box');
-                const resultInfo = document.getElementById('age-result-info');
-                resultInfo.textContent = `عمرك هو ${age} سنة.`;
-                resultBox.classList.remove('hidden');
-            });
-
-            // Love Meter Logic
-            document.getElementById('calculate-love-btn').addEventListener('click', () => {
-                const yourName = document.getElementById('your-name-input').value.trim();
-                const partnerName = document.getElementById('partner-name-input').value.trim();
-                if (yourName === '' || partnerName === '') {
-                    showMessageBox('الرجاء إدخال الاسمين.');
-                    return;
-                }
-                const combinedNames = (yourName + partnerName).toLowerCase();
-                let lovePercentage = 0;
-                for (let i = 0; i < combinedNames.length; i++) {
-                    lovePercentage += combinedNames.charCodeAt(i);
-                }
-                lovePercentage = (lovePercentage % 101);
-                
-                const resultBox = document.getElementById('love-meter-result-box');
-                const resultInfo = document.getElementById('love-meter-result-info');
-                resultInfo.textContent = `نسبة الحب بينكما هي: ${lovePercentage}%`;
-                resultBox.classList.remove('hidden');
-            });
-            
-            // Personality Analysis Logic
-            document.getElementById('analyze-personality-btn').addEventListener('click', () => {
-                const name = document.getElementById('personality-name-input').value.trim();
-                if (name === '') {
-                    showMessageBox('الرجاء إدخال اسمك.');
-                    return;
-                }
-                const personalityResult = getPersonalityAnalysis(name);
-                const resultBox = document.getElementById('personality-analysis-result-box');
-                const resultInfo = document.getElementById('personality-result-info');
-                resultInfo.textContent = personalityResult;
-                resultBox.classList.remove('hidden');
-            });
-
-            // Name Meaning Logic
-            document.getElementById('find-name-meaning-btn').addEventListener('click', () => {
-                const name = document.getElementById('name-meaning-input').value.trim();
-                if (name === '') {
-                    showMessageBox('الرجاء إدخال اسمك.');
-                    return;
-                }
-                const meaning = getNameMeaning(name);
-                const resultBox = document.getElementById('name-meaning-result-box');
-                const resultInfo = document.getElementById('name-meaning-result-info');
-                resultInfo.textContent = meaning;
-                resultBox.classList.remove('hidden');
-            });
-
-            // Name Calculator Logic
-            document.getElementById('calculate-name-btn').addEventListener('click', () => {
-                const name = document.getElementById('name-calculator-input').value.trim();
-                if (name === '') {
-                    showMessageBox('الرجاء إدخال اسمك.');
-                    return;
-                }
-                const value = calculateNameValue(name);
-                const resultBox = document.getElementById('name-calculator-result-box');
-                const resultInfo = document.getElementById('name-calculator-result-info');
-                resultInfo.textContent = `القيمة العددية لاسمك هي: ${value}`;
-                resultBox.classList.remove('hidden');
-            });
-
-            // BMI Calculator Logic
-            document.getElementById('calculate-bmi-btn').addEventListener('click', () => {
-                const weight = parseFloat(document.getElementById('bmi-weight-input').value);
-                const height = parseFloat(document.getElementById('bmi-height-input').value);
-                if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
-                    showMessageBox('الرجاء إدخال قيم صحيحة للوزن والطول.');
-                    return;
-                }
-                const bmi = weight / ((height / 100) * (height / 100));
-                let resultText = '';
-                if (bmi < 18.5) {
-                    resultText = `مؤشر كتلة الجسم هو: ${bmi.toFixed(2)}. أنت تعاني من نقص الوزن.`;
-                } else if (bmi >= 18.5 && bmi < 25) {
-                    resultText = `مؤشر كتلة الجسم هو: ${bmi.toFixed(2)}. وزنك صحي.`;
-                } else if (bmi >= 25 && bmi < 30) {
-                    resultText = `مؤشر كتلة الجسم هو: ${bmi.toFixed(2)}. أنت تعاني من زيادة في الوزن.`;
-                } else {
-                    resultText = `مؤشر كتلة الجسم هو: ${bmi.toFixed(2)}. أنت تعاني من السمنة.`;
-                }
-                const resultBox = document.getElementById('bmi-result-box');
-                const resultInfo = document.getElementById('bmi-result-info');
-                resultInfo.textContent = resultText;
-                resultBox.classList.remove('hidden');
-            });
-
-            // Zodiac Compatibility Logic
-            document.getElementById('check-compatibility-btn').addEventListener('click', () => {
-                const userZodiac = document.getElementById('user-zodiac').value;
-                const partnerZodiac = document.getElementById('partner-zodiac').value;
-                if (!userZodiac || !partnerZodiac) {
-                    showMessageBox('الرجاء اختيار البرجين.');
-                    return;
-                }
-                const compatibilityResult = getCompatibilityResult(userZodiac, partnerZodiac);
-                const resultBox = document.getElementById('compatibility-result-box');
-                const resultText = document.getElementById('compatibility-result-text');
-                resultText.textContent = compatibilityResult;
-                resultBox.classList.remove('hidden');
-            });
-            
-            // Prayer Times Logic
-            document.getElementById('prayer-times-btn').addEventListener('click', () => {
-                displayPrayerTimes();
-            });
-
-            function displayPrayerTimes() {
-                const prayerTimes = {
-                    fajr: '4:00 AM',
-                    sunrise: '5:30 AM',
-                    dhuhr: '12:00 PM',
-                    asr: '3:30 PM',
-                    maghrib: '6:30 PM',
-                    isha: '8:00 PM'
-                };
-                document.getElementById('fajr-time').textContent = prayerTimes.fajr;
-                document.getElementById('sunrise-time').textContent = prayerTimes.sunrise;
-                document.getElementById('dhuhr-time').textContent = prayerTimes.dhuhr;
-                document.getElementById('asr-time').textContent = prayerTimes.asr;
-                document.getElementById('maghrib-time').textContent = prayerTimes.maghrib;
-                document.getElementById('isha-time').textContent = prayerTimes.isha;
-                document.getElementById('prayer-times-modal').style.display = 'flex';
-            }
-
-            // Functions for features
-            function getZodiacSign(day, month) {
-                if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) { return { name_ar: 'الدلو', info_ar: 'برج الدلو هو برج هوائي يتميز بالاستقلالية والابتكار.' }; }
-                if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) { return { name_ar: 'الحوت', info_ar: 'برج الحوت هو برج مائي يتميز بالتعاطف والخيال الواسع.' }; }
-                if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) { return { name_ar: 'الحمل', info_ar: 'برج الحمل هو برج ناري يتميز بالحماس والشجاعة.' }; }
-                if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) { return { name_ar: 'الثور', info_ar: 'برج الثور هو برج ترابي يتميز بالثبات والصبر.' }; }
-                if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) { return { name_ar: 'الجوزاء', info_ar: 'برج الجوزاء هو برج هوائي يتميز بالفضول والذكاء.' }; }
-                if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) { return { name_ar: 'السرطان', info_ar: 'برج السرطان هو برج مائي يتميز بالحساسية والعاطفة.' }; }
-                if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) { return { name_ar: 'الأسد', info_ar: 'برج الأسد هو برج ناري يتميز بالثقة والكرم.' }; }
-                if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) { return { name_ar: 'العذراء', info_ar: 'برج العذراء هو برج ترابي يتميز بالدقة والعمل الجاد.' }; }
-                if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) { return { name_ar: 'الميزان', info_ar: 'برج الميزان هو برج هوائي يتميز بالتوازن والعدل.' }; }
-                if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) { return { name_ar: 'العقرب', info_ar: 'برج العقرب هو برج مائي يتميز بالعمق والشغف.' }; }
-                if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) { return { name_ar: 'القوس', info_ar: 'برج القوس هو برج ناري يتميز بالتفاؤل وحب المغامرة.' }; }
-                if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) { return { name_ar: 'الجدي', info_ar: 'برج الجدي هو برج ترابي يتميز بالانضباط والطموح.' }; }
-                return null;
-            }
-
-            function getPersonalityAnalysis(name) {
-                const personalities = [
-                    'شخصيتك قوية ومؤثرة، ولديك القدرة على القيادة.',
-                    'أنت شخص مبدع وتحب استكشاف أفكار جديدة.',
-                    'شخصيتك هادئة ومتزنة، وتفضل التفكير العميق.',
-                    'أنت شخص اجتماعي ومحبوب، ولديك العديد من الأصدقاء.',
-                    'شخصيتك عاطفية وحساسة، وتولي اهتماماً كبيراً بالمشاعر.',
-                    'أنت شخص طموح ومثابر، وتسعى لتحقيق أهدافك.',
-                    'شخصيتك مرحة وإيجابية، وتجلب السعادة لمن حولك.'
-                ];
-                const index = name.length % personalities.length;
-                return personalities[index];
-            }
-
-            function getNameMeaning(name) {
-                const meanings = {
-                    'أحمد': 'من الأسماء العربية، ويعني الحمد والشكر.',
-                    'محمد': 'من الأسماء العربية، ويعني المحمود والمشكر.',
-                    'فاطمة': 'من الأسماء العربية، ويعني التي تفطم من الرضاعة.',
-                    'علي': 'من الأسماء العربية، ويعني العلو والارتفاع.',
-                    'سارة': 'من الأسماء العبرية، ويعني الأميرة أو السيدة.',
-                    'مريم': 'من الأسماء العبرية، ويعني بحر المرارة أو السيدة المحبوبة.'
-                };
-                const meaning = meanings[name] || `لا يوجد معنى معروف لاسم "${name}".`;
-                return meaning;
-            }
-
-            function calculateNameValue(name) {
-                let value = 0;
-                for (let i = 0; i < name.length; i++) {
-                    value += name.charCodeAt(i);
-                }
-                return value;
-            }
-
-            const compatibilityData = {
-                'الحمل': {
-                    'الحمل': 'توافق جيد', 'الثور': 'توافق ضعيف', 'الجوزاء': 'توافق ممتاز',
-                    'السرطان': 'توافق ضعيف', 'الأسد': 'توافق ممتاز', 'العذراء': 'توافق ضعيف',
-                    'الميزان': 'توافق جيد', 'العقرب': 'توافق ضعيف', 'القوس': 'توافق ممتاز',
-                    'الجدي': 'توافق ضعيف', 'الدلو': 'توافق جيد', 'الحوت': 'توافق ضعيف'
-                },
-                'الثور': {
-                    'الحمل': 'توافق ضعيف', 'الثور': 'توافق جيد', 'الجوزاء': 'توافق ضعيف',
-                    'السرطان': 'توافق ممتاز', 'الأسد': 'توافق ضعيف', 'العذراء': 'توافق ممتاز',
-                    'الميزان': 'توافق ضعيف', 'العقرب': 'توافق ممتاز', 'القوس': 'توافق ضعيف',
-                    'الجدي': 'توافق ممتاز', 'الدلو': 'توافق ضعيف', 'الحوت': 'توافق جيد'
-                },
-                'الجوزاء': {
-                    'الحمل': 'توافق ممتاز', 'الثور': 'توافق ضعيف', 'الجوزاء': 'توافق جيد',
-                    'السرطان': 'توافق ضعيف', 'الأسد': 'توافق جيد', 'العذراء': 'توافق ضعيف',
-                    'الميزان': 'توافق ممتاز', 'العقرب': 'توافق ضعيف', 'القوس': 'توافق ممتاز',
-                    'الجدي': 'توافق ضعيف', 'الدلو': 'توافق ممتاز', 'الحوت': 'توافق ضعيف'
-                },
-                'السرطان': {
-                    'الحمل': 'توافق ضعيف', 'الثور': 'توافق ممتاز', 'الجوزاء': 'توافق ضعيف',
-                    'السرطان': 'توافق جيد', 'الأسد': 'توافق ضعيف', 'العذراء': 'توافق جيد',
-                    'الميزان': 'توافق ضعيف', 'العقرب': 'توافق ممتاز', 'القوس': 'توافق ضعيف',
-                    'الجدي': 'توافق ممتاز', 'الدلو': 'توافق ضعيف', 'الحوت': 'توافق ممتاز'
-                },
-                'الأسد': {
-                    'الحمل': 'توافق ممتاز', 'الثور': 'توافق ضعيف', 'الجوزاء': 'توافق جيد',
-                    'السرطان': 'توافق ضعيف', 'الأسد': 'توافق جيد', 'العذراء': 'توافق ضعيف',
-                    'الميزان': 'توافق جيد', 'العقرب': 'توافق ضعيف', 'القوس': 'توافق ممتاز',
-                    'الجدي': 'توافق ضعيف', 'الدلو': 'توافق ممتاز', 'الحوت': 'توافق ضعيف'
-                },
-                'العذراء': {
-                    'الحمل': 'توافق ضعيف', 'الثور': 'توافق ممتاز', 'الجوزاء': 'توافق ضعيف',
-                    'السرطان': 'توافق جيد', 'الأسد': 'توافق ضعيف', 'العذراء': 'توافق جيد',
-                    'الميزان': 'توافق ضعيف', 'العقرب': 'توافق جيد', 'القوس': 'توافق ضعيف',
-                    'الجدي': 'توافق ممتاز', 'الدلو': 'توافق ضعيف', 'الحوت': 'توافق ممتاز'
-                },
-                'الميزان': {
-                    'الحمل': 'توافق جيد', 'الثور': 'توافق ضعيف', 'الجوزاء': 'توافق ممتاز',
-                    'السرطان': 'توافق ضعيف', 'الأسد': 'توافق جيد', 'العذراء': 'توافق ضعيف',
-                    'الميزان': 'توافق جيد', 'العقرب': 'توافق ضعيف', 'القوس': 'توافق ممتاز',
-                    'الجدي': 'توافق ضعيف', 'الدلو': 'توافق ممتاز', 'الحوت': 'توافق ضعيف'
-                },
-                'العقرب': {
-                    'الحمل': 'توافق ضعيف', 'الثور': 'توافق ممتاز', 'الجوزاء': 'توافق ضعيف',
-                    'السرطان': 'توافق ممتاز', 'الأسد': 'توافق ضعيف', 'العذراء': 'توافق جيد',
-                    'الميزان': 'توافق ضعيف', 'العقرب': 'توافق جيد', 'القوس': 'توافق ضعيف',
-                    'الجدي': 'توافق ممتاز', 'الدلو': 'توافق ضعيف', 'الحوت': 'توافق ممتاز'
-                },
-                'القوس': {
-                    'الحمل': 'توافق ممتاز', 'الثور': 'توافق ضعيف', 'الجوزاء': 'توافق ممتاز',
-                    'السرطان': 'توافق ضعيف', 'الأسد': 'توافق ممتاز', 'العذراء': 'توافق ضعيف',
-                    'الميزان': 'توافق ممتاز', 'العقرب': 'توافق ضعيف', 'القوس': 'توافق جيد',
-                    'الجدي': 'توافق ضعيف', 'الدلو': 'توافق جيد', 'الحوت': 'توافق ضعيف'
-                },
-                'الجدي': {
-                    'الحمل': 'توافق ضعيف', 'الثور': 'توافق ممتاز', 'الجوزاء': 'توافق ضعيف',
-                    'السرطان': 'توافق ممتاز', 'الأسد': 'توافق ضعيف', 'العذراء': 'توافق ممتاز',
-                    'الميزان': 'توافق ضعيف', 'العقرب': 'توافق ممتاز', 'القوس': 'توافق ضعيف',
-                    'الجدي': 'توافق جيد', 'الدلو': 'توافق ضعيف', 'الحوت': 'توافق جيد'
-                },
-                'الدلو': {
-                    'الحمل': 'توافق جيد', 'الثور': 'توافق ضعيف', 'الجوزاء': 'توافق ممتاز',
-                    'السرطان': 'توافق ضعيف', 'الأسد': 'توافق ممتاز', 'العذراء': 'توافق ضعيف',
-                    'الميزان': 'توافق ممتاز', 'العقرب': 'توافق ضعيف', 'القوس': 'توافق جيد',
-                    'الجدي': 'توافق ضعيف', 'الدلو': 'توافق جيد', 'الحوت': 'توافق ضعيف'
-                },
-                'الحوت': {
-                    'الحمل': 'توافق ضعيف', 'الثور': 'توافق جيد', 'الجوزاء': 'توافق ضعيف',
-                    'السرطان': 'توافق ممتاز', 'الأسد': 'توافق ضعيف', 'العذراء': 'توافق ممتاز',
-                    'الميزان': 'توافق ضعيف', 'العقرب': 'توافق ممتاز', 'القوس': 'توافق ضعيف',
-                    'الجدي': 'توافق جيد', 'الدلو': 'توافق ضعيف', 'الحوت': 'توافق جيد'
-                }
-            };
-            function getCompatibilityResult(zodiac1, zodiac2) {
-                if (compatibilityData[zodiac1] && compatibilityData[zodiac1][zodiac2]) {
-                    return `توافق برج ${zodiac1} مع برج ${zodiac2}: ${compatibilityData[zodiac1][zodiac2]}`;
-                }
-                return 'لا يمكن حساب التوافق بين هذين البرجين.';
-            }
 
             allTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
@@ -1485,41 +825,40 @@
                 });
             });
 
-            // Initialize the statuses page to "Admin" when loaded
-            renderStatusesTab('admin');
+            renderStatusesTab('general');
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-    const SUPABASE_URL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im16aGFheGt0ZGhzdGhjd3VhbnR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcwOTAxMzAsImV4cCI6MjA3MjY2NjEzMH0.uzz_c32tLmR_4UMOUy1Prk4nei1gHcwsX2nFNsEZSG8;
-    const SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im16aGFheGt0ZGhzdGhjd3VhbnR1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NzA5MDEzMCwiZXhwIjoyMDcyNjY2MTMwfQ.impXVgtERmkj2TaL7IsZF_SN15CspDFtp5PduJQEQUc;
+    <script>
+        const SUPABASE_URL = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im16aGFheGt0ZGhzdGhjd3VhbnR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcwOTAxMzAsImV4cCI6MjA3MjY2NjEzMH0.uzz_c32tLmR_4UMOUy1Prk4nei1gHcwsX2nFNsEZSG8;
+        const SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im16aGFheGt0ZGhzdGhjd3VhbnR1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NzA5MDEzMCwiZXhwIjoyMDcyNjY2MTMwfQ.impXVgtERmkj2TaL7IsZF_SN15CspDFtp5PduJQEQUc;
 
-    const { createClient } = supabase;
-    const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const { createClient } = supabase;
+        const _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    async function signInWithOAuth(provider) {
-        const { data, error } = await _supabase.auth.signInWithOAuth({
-            provider: provider,
+        async function signInWithOAuth(provider) {
+            const { data, error } = await _supabase.auth.signInWithOAuth({
+                provider: provider,
+            });
+
+            if (error) {
+                alert('خطأ في تسجيل الدخول: ' + error.message);
+            } else {
+                console.log('Redirecting to ' + provider + ' login...');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const googleLoginBtn = document.getElementById('google-login-btn');
+            const facebookLoginBtn = document.getElementById('facebook-login-btn');
+
+            if (googleLoginBtn) {
+                googleLoginBtn.addEventListener('click', () => signInWithOAuth('google'));
+            }
+            if (facebookLoginBtn) {
+                facebookLoginBtn.addEventListener('click', () => signInWithOAuth('facebook'));
+            }
         });
-
-        if (error) {
-            alert('خطأ في تسجيل الدخول: ' + error.message);
-        } else {
-            console.log('Redirecting to ' + provider + ' login...');
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const googleLoginBtn = document.getElementById('google-login-btn');
-        const facebookLoginBtn = document.getElementById('facebook-login-btn');
-
-        if (googleLoginBtn) {
-            googleLoginBtn.addEventListener('click', () => signInWithOAuth('google'));
-        }
-        if (facebookLoginBtn) {
-            facebookLoginBtn.addEventListener('click', () => signInWithOAuth('facebook'));
-        }
-    });
-</script>
+    </script>
 </body>
 </html>
